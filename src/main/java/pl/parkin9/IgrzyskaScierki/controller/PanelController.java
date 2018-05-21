@@ -9,6 +9,7 @@ import pl.parkin9.IgrzyskaScierki.model.Game;
 import pl.parkin9.IgrzyskaScierki.model.Player;
 import pl.parkin9.IgrzyskaScierki.model.PlayerGroup;
 import pl.parkin9.IgrzyskaScierki.model.Task;
+import pl.parkin9.IgrzyskaScierki.service.CompareTimeService;
 import pl.parkin9.IgrzyskaScierki.service.GameService;
 import pl.parkin9.IgrzyskaScierki.service.PlayerService;
 import pl.parkin9.IgrzyskaScierki.service.TaskService;
@@ -24,13 +25,15 @@ public class PanelController {
 
     private final TaskService taskService;
     private final PlayerService playerService;
-    private GameService gameService;
+    private final GameService gameService;
+    private  final CompareTimeService compareTimeService;
 
     @Autowired
-    public PanelController(TaskService taskService, PlayerService playerService, GameService gameService) {
+    public PanelController(TaskService taskService, PlayerService playerService, GameService gameService, CompareTimeService compareTimeService) {
         this.taskService = taskService;
         this.playerService = playerService;
         this.gameService = gameService;
+        this.compareTimeService = compareTimeService;
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -49,9 +52,20 @@ public class PanelController {
             response.addCookie(new Cookie("gameCookie", "gameExists"));
         }
 
-        modelAndView.addObject("playerList", playerList);
+        if(compareTimeService.compare(sess) == 1) {
 
-        modelAndView.setViewName("panel");
+            if (game != null) {
+                game.setActive(false);
+                gameService.saveGame(game);
+            }
+
+
+            modelAndView.setViewName("winScreen");
+        } else {
+
+            modelAndView.addObject("playerList", playerList);
+            modelAndView.setViewName("panel");
+        }
 
         return modelAndView;
     }
@@ -150,5 +164,3 @@ public class PanelController {
         return new ModelAndView("logout");
     }
 }
-
-//////////////////////////////////////////////////////////////////////////////////////

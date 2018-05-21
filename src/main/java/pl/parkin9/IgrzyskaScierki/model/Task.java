@@ -19,7 +19,7 @@ public class Task {
     private String name;
 
     @NotNull
-    //@Min(value = 1)//
+    //  @Min(value = 1)
     @Column(name = "points_value")
     private Integer pointsValue;
 
