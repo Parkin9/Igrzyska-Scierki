@@ -43,7 +43,6 @@ public class PanelController {
         Game game = gameService.findOneByPlayerGroup(playerGroup);
         List<Player> playerList = playerService.findAllPlayers(playerGroup);
 
-
         if(game == null) {
             response.addCookie(new Cookie("gameCookie", "gameNotExists"));
         } else {
@@ -66,10 +65,6 @@ public class PanelController {
         Task task = new Task();
         PlayerGroup playerGroup = (PlayerGroup) sess.getAttribute("loggedInPlayerGroup");
         List<Task> taskList = taskService.findAllTasks(playerGroup);
-
-        if(task.getId() == 0) {
-
-        }
 
         modelAndView.addObject("task", task);
         modelAndView.addObject("taskList", taskList);

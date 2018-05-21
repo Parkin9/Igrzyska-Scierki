@@ -1,0 +1,34 @@
+body {
+    background-color: azure;
+    font-family: 'Modern Antiqua', cursive;
+    font-size: 20px;
+}
+
+#container {
+    width: 900px;
+    min-height: 295px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightgray;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#gameName {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.errorDiv {
+    color: darkred;
+}
+ #currentScore {
+     padding-top: 10px;
+     padding-bottom: 10px;
+ }
+
+ #menu {
+     text-align: center;
+ }

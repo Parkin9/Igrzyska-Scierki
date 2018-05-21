@@ -11,8 +11,6 @@ public interface TaskService {
 
     List<Task> findAllTasks(PlayerGroup playerGroup);
 
-    List<Task> findAllTasksById(Long id);
-
     Task findOneById(Long id);
 
     void deleteTask(Task task);

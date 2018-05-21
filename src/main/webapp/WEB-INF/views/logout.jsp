@@ -8,16 +8,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Igrzyska Ścierki 0.2</title>
+    <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Igrzyska Ścierki 0.3</title>
 </head>
 <body>
-    <hr>
-    <div>
+<div id="container">
+    <div id="gameName">
         <h1><i>Do zobaczenia!</i></h1>
     </div>
-    <hr>
-    <a href="/">
-        <button>Zaloguj ponownie</button>
-    </a>
+    <div id="menu">
+        <a href="/">
+            <button>Zaloguj ponownie</button>
+        </a>
+    </div>
+</div>
 </body>
 </html>

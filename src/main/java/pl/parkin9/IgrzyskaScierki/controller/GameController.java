@@ -17,6 +17,7 @@ import pl.parkin9.IgrzyskaScierki.service.TaskService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -78,7 +79,17 @@ public class GameController {
         }
 
         Player player = playerService.findOneById(Long.valueOf(request.getParameter("whichPlayerDo")));
-        List<Task> tasks = taskService.findAllTasksById(Long.valueOf(request.getParameter("whichTaskIsDone")));
+        String[] tasksStr = request.getParameterValues("whichTaskIsDone");
+
+        Long[] tasksLong = new Long[tasksStr.length];
+        for(int i = 0; i < tasksStr.length; i++) {
+            tasksLong[i] = Long.valueOf(tasksStr[i]);
+        }
+
+        List<Task> tasks = new ArrayList<>();
+        for (Long tasksId : tasksLong) {
+            tasks.add(taskService.findOneById(tasksId));
+        }
 
         for(Task task : tasks) {
             player.setScore((player.getScore()) + (task.getPointsValue()));

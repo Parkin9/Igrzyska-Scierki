@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: parkin9
@@ -9,44 +10,38 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Igrzyska Ścierki 0.1</title>
+    <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Igrzyska Ścierki 0.3</title>
 </head>
 <body>
-    <hr>
-    <div>
-        <h1>Igrzyska Ścierki 0.2</h1>
+<div id="container">
+    <div id="gameName">
+        <h1>Igrzyska Ścierki 0.3</h1>
     </div>
-    <hr>
-            <%--@elvariable id="login" type="pl.parkin9.IgrzyskaScierki.model.Login"--%>
-            <form:form modelAttribute="login">
-    <table>
-        <tr>
-            <td>
-                <label for="loginName">Login: </label>
-            </td>
-            <td>
-                <form:input path="loginName"/>
-            </td>
-            <td>
-                <form:errors path="loginName"/>
-            </td>
-            <td>
-        </tr>
-        <tr>
-            <td>
-                <label for="password">Hasło: </label>
-            </td>
-            <td>
-                <form:password path="password"/>
-            </td>
-            <td>
-                <form:errors path="password"/>
-            </td>
-        </tr>
-    </table>
-                <button type="submit">Zaloguj</button>
-            </form:form>
-    <a href="/registration"><button>Zarejestruj się</button></a>
-    <h4>${validErrorPass}</h4>
+    <div style="text-align: center">
+        <%--@elvariable id="login" type="pl.parkin9.IgrzyskaScierki.model.Login"--%>
+        <form:form modelAttribute="login">
+        <div>
+            <label for="loginName">Login: </label>
+            <form:input path="loginName"/>
+            <form:errors path="loginName"/>
+            <br/>
+            <label for="password">Hasło: </label>
+            <form:password path="password"/>
+            <form:errors path="password"/>
+        </div>
+        <span class="logButton">
+            <button type="submit">Zaloguj</button>
+        </span>
+        </form:form>
+        <span class="logButton">
+            <a href="/registration"><button>Zarejestruj się</button></a>
+        </span>
+        <div class="errorDiv">
+            ${validErrorPass}
+        </div>
+    </div>
+</div>
 </body>
 </html>

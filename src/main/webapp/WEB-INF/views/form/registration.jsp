@@ -9,46 +9,51 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Igrzyska Ścierki 0.2</title>
+    <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Igrzyska Ścierki 0.3</title>
 </head>
 <body>
-    <hr>
-    <div>
-        <h1>Igrzyska Ścierki 0.2</h1>
+<div id="container">
+    <div id="gameName">
+        <h1>Igrzyska Ścierki 0.3</h1>
     </div>
-    <hr>
-    <div>
+    <div id="menu">
         <a href="/"><button>Logowanie</button></a>
     </div>
-    <hr>
-            <%--@elvariable id="playerGroup" type="pl.parkin9.IgrzyskaScierki.model.PlayerGroup"--%>
-            <form:form modelAttribute="playerGroup">
-    <table>
-        <tr>
-            <td>
-                <label for="name">Nazwa konta: </label>
-            </td>
-            <td>
-                <form:input path="name"/>
-            </td>
-            <td>
-                <form:errors path="name"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="password">Hasło: </label>
-            </td>
-            <td>
-                <form:password path="password"/>
-            </td>
-            <td>
-                <form:errors path="password"/>
-            </td>
-        </tr>
-    </table>
-                <button type="submit">Zarejestruj</button>
-            </form:form>
-    <h4>${message}</h4>
+    <div>
+        <%--@elvariable id="playerGroup" type="pl.parkin9.IgrzyskaScierki.model.PlayerGroup"--%>
+        <form:form modelAttribute="playerGroup">
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Nazwa konta: </label>
+                    </td>
+                    <td>
+                        <form:input path="name"/>
+                        <form:errors path="name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">Hasło: </label>
+                    </td>
+                    <td>
+                        <form:password path="password"/>
+                        <form:errors path="password"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <span class="logButton">
+            <button type="submit">Zarejestruj</button>
+        </span>
+        </form:form>
+        <div class="errorDiv">
+            ${message}
+        </div>
+    </div>
+</div>
 </body>
 </html>

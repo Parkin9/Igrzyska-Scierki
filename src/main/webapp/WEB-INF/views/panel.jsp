@@ -10,66 +10,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Igrzyska Ścierki 0.2</title>
-    <script>
-        function clock() {
-
-            var toDay = new Date();
-
-            var day = toDay.getDate();
-            var month = toDay.getMonth()+1;
-            var year = toDay.getFullYear();
-
-            var hour = toDay.getHours();
-            if(hour < 10) hour = "0" + hour;
-
-            var minute = toDay.getMinutes();
-            if(minute < 10) minute = "0" + minute;
-
-            var sec = toDay.getSeconds();
-            if(sec < 10) sec = "0" + sec;
-
-            document.getElementById("clock").innerHTML =
-                day + "/" + month + "/" + year + " | " + hour + ":" + minute + ":" + sec;
-
-            setTimeout("clock()", 1000);
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Igrzyska Ścierki 0.3</title>
 </head>
-<body onload="clock()">
-    <div id="clock" style="position:absolute; right:10px; top:10px"></div>
-    <div>
+<body>
+<div id="container">
+    <div id="gameName">
         <h1>${sessionScope.loggedInPlayerGroup.name}</h1>
     </div>
-    <hr>
-    <div>
+    <div id="menu">
+        <a href="/game"><button><b>Gra</b></button></a>
+        <a href="/addTask"><button>Zarządzaj Zadaniami</button></a>
+        <a href="/addPlayer"><button>Zarządzaj Graczami</button></a>
+        <a href="/logout"><button>Wyloguj</button></a>
+    </div>
+    <div id="currentScore">
         <table>
-            <td>
-                <a href="/game"><button><b>Gra</b></button></a>
-            </td>
-            <td>
-                <a href="/addTask"><button>Zarządzaj Zadaniami</button></a>
-            </td>
-            <td>
-                <a href="/addPlayer"><button>Zarządzaj Graczami</button></a>
-            </td>
-            <td>
-                <a href="/logout"><button>Wyloguj</button></a>
-            </td>
+            <tr>
+                <th>Aktualna rozgrywka</th>
+            </tr>
+            <c:forEach items="${playerList}" var="player">
+            <tr>
+                <td>
+                <c:out value="${player.name}"/>
+                <c:out value=" - "/>
+                <c:out value="${player.score}"/>
+                </td>
+            </tr>
+            </c:forEach>
         </table>
     </div>
-    <hr>
-    <table>
-        <tr>
-            <td><u>Gracz</u></td>
-            <td><u>Wynik</u></td>
-        </tr>
-        <c:forEach items="${playerList}" var="player">
-            <tr>
-                <td><c:out value="${player.name}"/></td>
-                <td><c:out value="${player.score}"/></td>
-            </tr>
-        </c:forEach>
-    </table>
+</div>
 </body>
 </html>

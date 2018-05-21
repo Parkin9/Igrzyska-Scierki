@@ -10,17 +10,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Igrzyska Ścierki 0.2</title>
+    <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Igrzyska Ścierki 0.3</title>
 </head>
 <body>
-    <div>
+<div id="container">
+    <div id="gameName">
         <h1>Zarządzanie Zadaniami</h1>
     </div>
-    <hr>
-    <div>
+    <div id="menu">
         <a href="/panel"><button>Wróć do Panelu</button></a>
     </div>
-    <hr>
         <%--@elvariable id="task" type="pl.parkin9.IgrzyskaScierki.model.Task"--%>
         <form:form modelAttribute="task">
     <table>
@@ -50,19 +51,22 @@
             <button type="submit">Dodaj</button>
         </form:form>
     <hr>
-    <table>
-        <tr>
-            <td><u>Zadanie</u></td>
-            <td><u>Punkty</u></td>
-            <td></td>
-        </tr>
-        <c:forEach items="${taskList}" var="task">
+    <div id="currentScore">
+        <table>
             <tr>
-                <td><c:out value="${task.name}"/></td>
-                <td><c:out value="${task.pointsValue}"/></td>
-                <td><a href="/deleteTask/${task.id}"><button>Usuń</button></a></td>
+                <th>Zadanie</th>
+                <th>Punkty</th>
+                <th></th>
             </tr>
-        </c:forEach>
-    </table>
+            <c:forEach items="${taskList}" var="task">
+                <tr>
+                    <td><c:out value="${task.name}"/></td>
+                    <td><c:out value="${task.pointsValue}"/></td>
+                    <td><a href="/deleteTask/${task.id}"><button>Usuń</button></a></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+</div>
 </body>
 </html>
