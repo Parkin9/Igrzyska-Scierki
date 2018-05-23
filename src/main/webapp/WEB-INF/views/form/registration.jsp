@@ -11,12 +11,12 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Igrzyska Ścierki 0.3</title>
+    <title>Igrzyska Ścierki</title>
 </head>
 <body>
 <div id="container">
     <div id="gameName">
-        <h1>Igrzyska Ścierki 0.3</h1>
+        <h1>Igrzyska Ścierki</h1>
     </div>
     <div id="menu">
         <a href="/"><button>Logowanie</button></a>

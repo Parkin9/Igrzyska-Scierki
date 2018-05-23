@@ -9,6 +9,7 @@ import pl.parkin9.IgrzyskaScierki.model.Game;
 import pl.parkin9.IgrzyskaScierki.model.Player;
 import pl.parkin9.IgrzyskaScierki.model.PlayerGroup;
 import pl.parkin9.IgrzyskaScierki.model.Task;
+import pl.parkin9.IgrzyskaScierki.implementation.CompareTimeServiceImpl;
 import pl.parkin9.IgrzyskaScierki.service.CompareTimeService;
 import pl.parkin9.IgrzyskaScierki.service.GameService;
 import pl.parkin9.IgrzyskaScierki.service.PlayerService;
@@ -52,13 +53,15 @@ public class PanelController {
             response.addCookie(new Cookie("gameCookie", "gameExists"));
         }
 
-        if(compareTimeService.compare(sess) == 1) {
+        if((compareTimeService.compare(sess) == 1) && (game != null)) {
 
-            if (game != null) {
-                game.setActive(false);
-                gameService.saveGame(game);
+            game.setActive(false);
+            gameService.saveGame(game);
+
+            for(Player player : playerList) {
+                player.setScore(0);
+                playerService.savePlayer(player);
             }
-
 
             modelAndView.setViewName("winScreen");
         } else {
@@ -66,6 +69,7 @@ public class PanelController {
             modelAndView.addObject("playerList", playerList);
             modelAndView.setViewName("panel");
         }
+
 
         return modelAndView;
     }

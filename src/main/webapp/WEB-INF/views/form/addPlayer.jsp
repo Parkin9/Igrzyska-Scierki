@@ -12,7 +12,7 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Igrzyska Ścierki 0.3</title>
+    <title>Igrzyska Ścierki</title>
 </head>
 <body>
 <div id="container">

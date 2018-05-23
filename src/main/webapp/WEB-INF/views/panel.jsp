@@ -1,3 +1,4 @@
+<%--@elvariable id="player" type="pl.parkin9.IgrzyskaScierki.model.Player"--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
@@ -12,7 +13,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Igrzyska Ścierki 0.3</title>
+    <title>Igrzyska Ścierki</title>
+
 </head>
 <body>
 <div id="container">
@@ -20,10 +22,10 @@
         <h1>${sessionScope.loggedInPlayerGroup.name}</h1>
     </div>
     <div id="menu">
-        <a href="/game"><button><b>Gra</b></button></a>
-        <a href="/addTask"><button>Zarządzaj Zadaniami</button></a>
-        <a href="/addPlayer"><button>Zarządzaj Graczami</button></a>
-        <a href="/logout"><button>Wyloguj</button></a>
+        <a href="<c:url value="/game"/>"><button><b>Gra</b></button></a>
+        <a href="<c:url value="/addTask"/>"><button>Zarządzaj Zadaniami</button></a>
+        <a href="<c:url value="/addPlayer"/>"><button>Zarządzaj Graczami</button></a>
+        <a href="<c:url value="/logout"/>"><button>Wyloguj</button></a>
     </div>
     <div id="currentScore">
         <table>
