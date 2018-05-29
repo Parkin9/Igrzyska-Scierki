@@ -15,10 +15,14 @@
 <body>
 <div id="container">
     <div id="gameName">
-        <h1>Wygrał</h1>
+        <h1>Gratulację!</h1>
     </div>
     <div id="menu">
         <a href="/panel"><button>Wróć do Panelu</button></a>
+    </div>
+    <div style="text-align: center">
+        Zwycięzcą zostaje ${winner}!<br/>
+        Osiągnięty wynik to ${maxScore} punktów.
     </div>
 
 </div>

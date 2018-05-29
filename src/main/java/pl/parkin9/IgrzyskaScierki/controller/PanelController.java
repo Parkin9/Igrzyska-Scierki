@@ -58,11 +58,27 @@ public class PanelController {
             game.setActive(false);
             gameService.saveGame(game);
 
+            Integer maxScore = 0;
+            String winner = "";
             for(Player player : playerList) {
+
+                if(player.getScore() > maxScore) {
+                    maxScore = player.getScore();
+                }
+
+                if(player.getScore().equals(maxScore)) {
+                    winner = player.getName();
+                }
+            }
+
+            for(Player player : playerList) {
+
                 player.setScore(0);
                 playerService.savePlayer(player);
             }
 
+            modelAndView.addObject("winner", winner);
+            modelAndView.addObject("maxScore", maxScore);
             modelAndView.setViewName("winScreen");
         } else {
 
