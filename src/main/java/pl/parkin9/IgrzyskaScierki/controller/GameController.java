@@ -87,7 +87,7 @@ public class GameController {
         }
 
         List<Task> tasks = new ArrayList<>();
-        for (Long tasksId : tasksLong) {
+        for(Long tasksId : tasksLong) {
             tasks.add(taskService.findOneById(tasksId));
         }
 

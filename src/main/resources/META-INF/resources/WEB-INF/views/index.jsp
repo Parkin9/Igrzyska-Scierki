@@ -1,3 +1,4 @@
+<%--@elvariable id="validErrorPass" type=""--%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
@@ -11,7 +12,7 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="<c:url value="css/style.css"/>">
     <title>Igrzyska Ścierki</title>
 </head>
 <body>
@@ -36,7 +37,7 @@
         </span>
         </form:form>
         <span class="logButton">
-            <a href="/registration"><button>Zarejestruj się</button></a>
+            <a href="<c:url value="/registration"/>"><button>Zarejestruj się</button></a>
         </span>
         <div class="errorDiv">
             ${validErrorPass}
